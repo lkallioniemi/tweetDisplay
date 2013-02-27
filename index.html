@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TweetDisplay</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="assets/js/tweetDisplay.js"></script>
+		<link type="text/css" rel="stylesheet" media="all" href="assets/css/tweetDisplay.css">
+		<script>
+			$(document).ready(function(){
+				$('#twitter').tweetDisplay({ 'request' : '@lkallion','numberOfTweets' : 20 });
+			});
+		</script>
+	</head>
+	<body>
+		<div id="twitter"></div>
+	</body>
+</html>

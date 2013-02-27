@@ -1,0 +1,15 @@
+#twitter { background-color: #333333; padding: 0 10px 10px; font-size: 12px; line-height: 1.5; font-weight: normal; color: #999; }
+#twitter .tweet { color: #333; font-size: 14px; font-weight: normal; line-height: 1.5; padding-left: 14px; text-decoration: none; }
+#twitter .tweet + .tweet { border-top: 1px solid #666666; }
+#twitter H6 { color: #333; font-size: 22px; font-weight: normal; line-height: 37px; background-color: #F2F2F2; border-bottom: 3px solid #C40011; height: 37px; padding: 0 10px; margin: 0 -10px 10px; background-image: none; }
+#twitter H6 .request { color: #1A1B1E; font-size: 14px; float: right; line-height: 37px; }
+#twitter .tweet { color: #333; font-size: 14px; font-weight: normal; line-height: 1.5; padding-left: 14px; text-decoration: none; }
+#twitter .tweet .time { color: #fff; display: inline; white-space: nowrap; float: right; bottom: 0;  position: relative; top: 0; right: 0; margin: 0px; padding: 0 5px; background-color: #000; }
+#twitter .tweet .content { display: block; clear: both; padding: 10px 30px 20px; color: #ffffff; }
+#twitter .meta { background-color: #666666; float: left; text-align: right; padding: 4px 10px; font-size: 10px; line-height: 1.0; }
+#twitter .tweet .image { display: none; }
+#twitter .tweet .meta .handle { margin: 0 2px; color: #999999; float: right; }
+#twitter .tweet .meta .name { margin: 0 2px; color: #ffffff; float: left; font-weight: bold; white-space: nowrap; }
+#twitter a { color: #c40011; }
+.twtr-hyperlink,  { color: #E6342B; }
+.twtr-atreply, twtr-hashtag { color: #666666; }
