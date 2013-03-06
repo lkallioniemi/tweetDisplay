@@ -82,29 +82,29 @@
 						count++;
 					}
 				} else {
-					parentElement.append('<div class="tweet"><span class="time">'+timeAgo(value.created_at)+'</span><div class="meta"><span class="image"><img src="'+value.user.profile_image_url+'" alt="'+value.user.name+'" onClick="sendLinkClick(\'twitter_sender\')"></span><a href="http://www.twitter.com/'+value.user.screen_name+'" class="handle">@'+value.user.screen_name+'</a><span class="name">'+value.user.name+'</span></div><span class="content">'+ify.clean(value.text)+'</span> </div>');
+					parentElement.append('<div class="tweet"><span class="time">'+timeAgo(value.created_at)+'</span><div class="meta"><span class="image"><img src="'+value.profile_image_url+'" alt="'+value.from_user_name+'" onClick="sendLinkClick(\'twitter_sender\')"></span><a href="http://www.twitter.com/'+value.from_user+'" class="handle">@'+value.from_user+'</a><span class="name">'+value.from_user_name+'</span></div><span class="content">'+ify.clean(value.text)+'</span> </div>');
 				}
 			});
 		},
 		_loadTweets : function(){
 			clearTimeout('timeout');
 			var data;
-			var url;
+			var url = "http://search.twitter.com/search.json";
 			if (defaults.request.match(/^#/)) {
 				data = {
 					'q': defaults.request.replace(/^#/,'%23'),
-					'rpp' : '100',
+					'count' : '100',
 					'result_type' : 'resent'
 				}
-				url = 'http://search.twitter.com/search.json'
 			} else {
-				data = { 'screen_name': defaults.request,
-					'include_rts': 'true',
-					'count': defaults.numberOfTweets,
-					'include_entities': 'true'
+				data = { 
+					'q' : "from:"+defaults.request.replace(/^@/,''),
+					'count' : '100',
+					'result_type' : 'resent'
 				};
-				url = 'http://api.twitter.com/1/statuses/user_timeline.json/';
 			}
+			
+			
 			if (helpers._initStorage()) { 
 				d = new Date();
 				time = localStorage.getItem("twitter_time_"+defaults.request);
@@ -117,7 +117,7 @@
 						data: data,
 						success: function(data, textStatus, xhr) {
 							if (helpers._initStorage()) {
-								if (data != "")	localStorage.setItem("tweet_items_"+defaults.request, JSON.stringify(data));
+								if (data != "") localStorage.setItem("tweet_items_"+defaults.request, JSON.stringify(data));
 								helpers._displayTweets();
 							} else {
 								helpers._displayTweets(data);
